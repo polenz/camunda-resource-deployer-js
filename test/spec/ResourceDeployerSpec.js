@@ -2,6 +2,8 @@
 
 var TestHelper = require('../TestHelper');
 
+var fs = require('fs');
+
 var TestContainer = require('mocha-test-container-support');
 
 /* global bootstrapModeler, inject */
@@ -12,7 +14,7 @@ var coreModule = require('bpmn-js/lib/core'),
 
 describe('properties-panel', function() {
 
-  var diagramXML = require('./test.bpmn');
+  var diagramXML = fs.readFileSync(__dirname + '/test.bpmn', { encoding: 'utf-8' });
 
   var testModules = [
     coreModule, selectionModule, modelingModule
