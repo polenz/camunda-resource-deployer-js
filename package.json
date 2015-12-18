@@ -41,7 +41,6 @@
     "diagram-js": "^0.12.1",
     "inherits": "^2.0.1",
     "lodash": "^3.0.1",
-    "min-dom": "^0.2.0",
-    "camunda-bpm-sdk-js": "camunda/camunda-bpm-sdk-js"
+    "min-dom": "^0.2.0"
   }
 }
