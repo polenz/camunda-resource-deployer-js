@@ -1,6 +1,7 @@
 'use strict';
 
-var TestHelper = module.exports = require('bpmn-js/test/helper');
+var TestHelper = module.exports = require('bpmn-js/test/helper'),
+    ResourceDeployer = require('../lib/ResourceDeployer');
 
 TestHelper.insertCSS('diagram-js.css', require('diagram-js/assets/diagram-js.css'));
 TestHelper.insertCSS('bpmn-embedded.css', require('bpmn-js/assets/bpmn-font/css/bpmn-embedded.css'));
@@ -80,7 +81,24 @@ var selectedByOption = function(element, optionValue) {
   }
 };
 
+var toggleResourceDeployer = function(test, container) {
+
+  if(test.resourceDeployer) {  
+    test.resourceDeployer.close();
+    test.resourceDeployer = null;
+  }
+  else {
+    var options = {
+      container: container,
+      resourceProvider: function() {
+      }
+    };
+    test.resourceDeployer = new ResourceDeployer(options);
+  }
+};
+
 module.exports.triggerEvent = triggerEvent;
 module.exports.triggerValue = triggerValue;
 module.exports.triggerInput = triggerInput;
 module.exports.selectedByOption = selectedByOption;
+module.exports.toggleResourceDeployer = toggleResourceDeployer;

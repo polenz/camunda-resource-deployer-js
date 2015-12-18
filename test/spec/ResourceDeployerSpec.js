@@ -8,8 +8,7 @@ var TestContainer = require('mocha-test-container-support');
 
 var coreModule = require('bpmn-js/lib/core'),
     selectionModule = require('diagram-js/lib/features/selection'),
-    modelingModule = require('bpmn-js/lib/features/modeling'),
-    ResourceDeployer = require('../../lib/ResourceDeployer');
+    modelingModule = require('bpmn-js/lib/features/modeling');
 
 var domQuery = require('min-dom/lib/query');
 
@@ -22,6 +21,8 @@ describe('properties-panel', function() {
   ];
 
   var container;
+  var resourceDeployerContainer;
+  var textCtx;
 
   beforeEach(function() {
     container = TestContainer.get(this);
@@ -34,26 +35,15 @@ describe('properties-panel', function() {
 
   beforeEach(inject(function(commandStack) {
 
-    var resourceDeployer;
+    textCtx = {};
 
     var button = document.createElement('button');
     button.textContent = 'Toggle Deployer';
     
-    var resourceDeployerContainer = document.createElement('div');
+    resourceDeployerContainer = document.createElement('div');
 
     button.addEventListener('click', function() {
-      if(resourceDeployer) {  
-        resourceDeployer.close();
-        resourceDeployer = null;
-      }
-      else {
-        var options = {
-          container: resourceDeployerContainer,
-          resourceProvider: function() {
-          }
-        };
-        resourceDeployer = new ResourceDeployer(options);
-      }
+      TestHelper.toggleResourceDeployer(textCtx, resourceDeployerContainer);
     });
 
     container.appendChild(button);
@@ -62,7 +52,7 @@ describe('properties-panel', function() {
 
 
   it('should do nothing', inject(function() {
-
+    TestHelper.toggleResourceDeployer(textCtx, resourceDeployerContainer);
   }));
 
 });
