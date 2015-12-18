@@ -9,7 +9,7 @@ describe('resource-deployer-request', function() {
   it('should create a request', function() {
     var values = {
       filename: 'myTestProcess',
-      apiUrl : 'http://localhost:8080/engine/deployment/create'
+      apiUrl : 'http://localhost:8080/engine-rest/deployment/create'
     };
     var response = new ResourceDeployerRequest(values, diagramXML);
 
