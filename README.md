@@ -2,6 +2,9 @@
 
 A simple UI Component which can be used to deploy a resource (BPMN File, DMN File, CMMN file) to Camunda Process Engine using the REST API.
 
+![screenshot](https://github.com/polenz/camunda-resource-deployer-js/blob/master/assets/screenshot.png)
+
+
 ## How to use it
 
 Embedding the Component.
