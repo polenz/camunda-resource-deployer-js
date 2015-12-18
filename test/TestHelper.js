@@ -90,7 +90,9 @@ var toggleResourceDeployer = function(test, container) {
   else {
     var options = {
       container: container,
-      resourceProvider: function() {
+      resourceProvider: function(done) {
+        var BPMNJS = TestHelper.getBpmnJS();
+        BPMNJS.saveXML({ format: true }, done);
       }
     };
     test.resourceDeployer = new ResourceDeployer(options);

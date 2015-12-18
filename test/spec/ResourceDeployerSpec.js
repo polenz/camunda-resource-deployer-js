@@ -33,7 +33,7 @@ describe('properties-panel', function() {
   }));
 
 
-  beforeEach(inject(function(commandStack) {
+  beforeEach(inject(function(commandStack, canvas) {
 
     textCtx = {};
 
