@@ -5,17 +5,18 @@
   <div>
     <div>
       <label for="api-url">Api URL</label>
-      <input id="api-url" type="text" name="apiUrl"></div>
+      <input id="api-url" type="text" name="apiUrl" value="http://localhost:8080/engine-rest">
+      </input>
     </div>
     <div>
       <label for="filename">Filename</label>
       <input id="filename" type="text" name="filename"></div>
     </div>
     <div>
-      <button id="deploy">Deploy</button>
+      <button id="deploy" data-action="deploy">Deploy</button>
     </div>
     <div>
-      <textarea class="djs-resource-deplyoer-console"></textarea>      
+      <textarea class="djs-resource-deplyoer-console" name="log"></textarea>      
     </div>
   </div>
 </div>
