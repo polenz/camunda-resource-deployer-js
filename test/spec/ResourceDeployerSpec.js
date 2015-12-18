@@ -10,8 +10,6 @@ var coreModule = require('bpmn-js/lib/core'),
     selectionModule = require('diagram-js/lib/features/selection'),
     modelingModule = require('bpmn-js/lib/features/modeling');
 
-var domQuery = require('min-dom/lib/query');
-
 describe('properties-panel', function() {
 
   var diagramXML = require('./test.bpmn');
